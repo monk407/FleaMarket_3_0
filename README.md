@@ -30,10 +30,11 @@ Java、Spring、SpringMVC、Mybatis、js、jsp
 Picture文件导入
 
 ![输入图片说明](https://foruda.gitee.com/images/1683977415218702684/30602b82_9964688.png "屏幕截图")
-
 ![输入图片说明](https://foruda.gitee.com/images/1683977420125641364/529ef663_9964688.png "屏幕截图")
+
 ##3、pom文件要重新load一下
 
 ##4、注意resource
+
 ![输入图片说明](https://foruda.gitee.com/images/1683977424933955499/086c4b37_9964688.png "屏幕截图")
 
