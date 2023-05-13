@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    outline: none;
+}
+.main {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80vw;
+    height: 80vh;
+}
+
+.cart-filter-bart {
+    font-size: 40px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 3px solid black;
+}
+
+.cart-table {
+    margin-top: 10px;
+    height: 20px;
+    font-weight: bold;
+}
+
+.cart-table-tr {
+    height: 120px;
+}
+
+.Increase {
+    border-right: none;
+    float: left;
+}
+
+.Reduce {
+    border-left: none;
+    float: left;
+}
+
+.amount .unum {
+    width: 70px;
+    height: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 16px;
+    float: left;
+}
+
+.amount button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.good_operation button{
+    width: 47px;
+    height: 30px;
+    margin-top: 81px;
+    margin-left: 14px;
+    background-color: #FFBF6B;
+    border-color: #FFBF6B;
+    border-radius: 5px;
+}
+
+tr.count .jiesuan .right {
+    text-align: right;
+}
+tr.count .jiesuan .right p {
+    margin: 5px 0;
+}
+tr.count .jiesuan .right .pay {
+    display: block;
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #f30213;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+.fr {
+    float: right;
+}

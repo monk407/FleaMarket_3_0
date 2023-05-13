@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.endless.dao.TypeDao">
+
+    <select id="SelectAllType" resultType="com.endless.pojo.Type">
+        select *
+        from type
+    </select>
+
+    <insert id="AddType">
+        insert into type (name)
+            value (#{name})
+
+    </insert>
+    <delete id="DeletaType">
+        delete
+        from type
+        where id = #{id}
+
+    </delete>
+
+    <update id="UpdateType">
+        update type
+        set name=#{name}
+        where id = #{id}
+    </update>
+
+    <select id="FindTypeName" resultType="com.endless.pojo.Type">
+        select *
+        from type where name = #{name}
+    </select>
+
+    <select id="FindTypeID" resultType="com.endless.pojo.Type">
+        select *
+        from type where id = #{id}
+    </select>
+
+    <select id="AdminFindTypeExceptThisId" resultType="com.endless.pojo.Type">
+        select *
+        from type where name=#{name} and id != #{id}
+    </select>
+
+    <select id="getAllTypeDesc" resultType="com.endless.pojo.Type">
+        select * from type order by id desc
+    </select>
+
+    <select id="findTypeIdByName" resultType="int">
+        select id from type where name=#{typeName}
+    </select>
+
+</mapper>
+

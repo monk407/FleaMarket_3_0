@@ -1,0 +1,64 @@
+@import url(common/backcommon.css);
+
+
+.right{
+    /*position: fixed;*/
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 80px 10px;
+    margin-left: 200px;
+    background: #e0e3e8;
+}
+
+.table{
+    background: #fff;
+    border-radius: 5px;
+}
+.table dt{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8400;
+    line-height: 50px;
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+.table dd{
+    display: inline-block; /*让同级标签变成一行输出*/
+    padding: 20px;
+}
+
+.table dd div{
+    width: 200px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.table dd strong{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff8400;
+}
+
+.table dd span{
+    color: #aaa;
+}
+
+.table dd div:after{
+    content: "";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(#fff,#ccc,#fff);
+    right: 0;
+}
+.foot_font{
+    margin-top: 100px;
+    /* margin-left: 425px; */
+    text-align: center;
+    color: #bbbbbb;
+}

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.endless.dao.UserDao">
+
+    <select id="selectUser" resultType="com.endless.pojo.User">
+       select * from user order by id
+    </select>
+
+    <select id="selectUser2" resultType="com.endless.pojo.User">
+        select * from user where name=#{name} and address=#{address}
+    </select>
+
+    <select id="selectByUsernamePassword" resultType="com.endless.pojo.User">
+        select * from user where username=#{username} and password=#{password}
+    </select>
+
+    <select id="selectByEmailPassword" resultType="com.endless.pojo.User">
+        select * from user where email=#{email} and password=#{password}
+    </select>
+
+    <select id="isUserNameAndEmail" resultType="com.endless.pojo.User">
+
+        select * from user where username=#{username} or email=#{email}
+
+    </select>
+
+    <insert id="addUser">
+        insert into user(username,email,password,name,phone,address,isadmin) values(#{username},#{email},#{password},#{name},#{phone},#{address},0)
+    </insert>
+
+
+
+
+    <!-- 读数据库行数 -->
+    <select id="selectUserColumn" resultType="java.lang.Integer">
+        select count(*) from `user`
+    </select>
+
+    <insert id="AdminAddUser1">
+        insert into user(username,email,password,name,phone,address,isadmin) values(#{username},#{email},#{password},#{name},#{phone},#{address},1)
+    </insert>
+    <insert id="AdminAddUser0">
+        insert into user(username,email,password,name,phone,address,isadmin) values(#{username},#{email},#{password},#{name},#{phone},#{address},0)
+    </insert>
+
+    <update id="AdminResetPassword">
+        update user set password='000000' where id=#{id}
+    </update>
+    <delete id="AdminDeleteUser">
+        delete from user where id=#{id}
+    </delete>
+
+    <select id="AdminFindUpdateUser" resultType="com.endless.pojo.User">
+        select * from user where id=#{id}
+    </select>
+
+    <select id="AdminFindUserExceptThisId" resultType="com.endless.pojo.User">
+        select * from  user where (username=#{username} or email=#{email}) and id!=#{id}
+    </select>
+
+    <update id="AdminUpdateUser1">
+        update user set username=#{username},email=#{email},password=#{password},
+                        name=#{name},phone=#{phone},address=#{address},
+                        isadmin=1
+        where id=#{id}
+    </update>
+    <update id="AdminUpdateUser0">
+        update user set username=#{username},email=#{email},password=#{password},
+                        name=#{name},phone=#{phone},address=#{address},
+                        isadmin=0
+        where id=#{id}
+    </update>
+
+    <select id="findUserById" resultType="com.endless.pojo.User">
+        select * from user where id=#{id}
+    </select>
+
+    <select id="AdminSearchUser" resultType="com.endless.pojo.User">
+        SELECT *
+        FROM USER
+        WHERE user.username LIKE CONCAT('%', #{searchValue}, '%')
+           OR user.email LIKE CONCAT('%', #{searchValue}, '%')
+           OR user.name LIKE CONCAT('%', #{searchValue}, '%')
+           OR user.phone LIKE CONCAT('%', #{searchValue}, '%')
+           OR user.address LIKE CONCAT('%', #{searchValue}, '%')
+    </select>
+
+
+    <update id="UpdateUser">
+        update user set email=#{email},name=#{name},phone=#{phone},address=#{address}
+        where id=#{id}
+    </update>
+
+    <update id="UpdateUserPassword">
+        update user set password=#{password}
+        where id=#{id}
+    </update>
+    <select id="findUserByNameAndEmail" resultType="com.endless.pojo.User">
+        select * from user where username=#{username} and email=#{email}
+    </select>
+</mapper>

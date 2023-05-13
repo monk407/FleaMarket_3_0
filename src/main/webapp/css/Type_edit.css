@@ -1,0 +1,62 @@
+@import url(common/backcommon.css);
+
+.pos{
+    width:600px;
+    margin:0 auto;
+}
+
+.type_edit_form{
+    margin-top: 66px;
+}
+.type_edit_form ul{
+    width: 580px;
+    display: flex;
+    /*margin-left: 50px;*/
+    font-size: 20px;
+    border-radius: 30px;
+    line-height: 45px;
+    position: relative;
+}
+
+.type_edit_form label{
+    width: 180px;
+    height: 100%;
+    color: #9d9d9d;
+    text-align: center;
+}
+
+.type_edit_form input.text{
+    width: 100%;
+    border: 1px solid #9d9d9d;
+    font-size: 20px;
+    color: #0f0f0f;
+    padding-left: 15px;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+.button_pos{
+    margin-left: 100px;
+}
+.type_edit_form button{
+    margin-top: 36px;
+    width: 80px;
+    height: 46px;
+    background: #9d9d9d;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 30px;
+    margin-left: 80px;
+}
+
+.type_edit_form button:hover,.type_edit_form button.active{
+    color: #2aabd2;
+}
+
+/* 页脚 */
+.foot_font{
+    margin-top: 100px;
+    /* margin-left: 425px; */
+    text-align: center;
+    color: #bbbbbb;
+}
+

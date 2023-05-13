@@ -1,0 +1,8 @@
+$(function () {
+    $("#SelectAllUser").click(function () {
+    
+
+    })
+
+
+})

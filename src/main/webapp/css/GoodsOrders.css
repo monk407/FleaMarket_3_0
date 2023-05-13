@@ -1,0 +1,227 @@
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	h2{
+		color: #000000;
+		margin-top: 18px;
+		margin-bottom: 10px;
+	}
+	.line{
+		
+		width: 100%;
+		height: 1px;
+		border-top:2px solid #bbb ;
+	}
+	.w{
+		width: 1220px;
+		margin: 0 auto;
+	}
+	/* .container {
+		width: 1200px;
+		margin: 0 auto;
+		position: relative;
+	} */
+
+
+	/* 商品导航 */
+	.show_goodorders_nav{
+		margin: 0;
+		width: 100%;
+		height: 50px;
+		border: 1px solid #bbb;
+		margin-top: 30px;
+	}
+	.show_goodorders_nav li{
+		list-style: none;
+		float: left;
+	}
+	.good_id_nav{
+		margin: 0;
+		width: 80px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+		
+	}
+	.good_id_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.good_price_nav{
+		margin: 0;
+		width: 100px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+	}
+	.good_price_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.good_info_nav{
+		margin: 0;
+		width: 250px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+	}
+	.good_info_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.user_info_nav{
+		margin: 0;
+		width: 250px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+	}
+	.user_info_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.order_type_nav{
+		margin: 0;
+		width: 110px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+	}
+	.order_type_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.order_username_nav{
+		margin: 0;
+		width: 110px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+	}
+	.order_username_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.order_time_nav{
+		margin: 0;
+		width: 180px;
+		height: 50px;
+		border-right: 1px solid #bbb;
+	}
+	.order_time_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+	.goodorders_operation_nav{
+		margin: 0;
+		width: 110px;
+		height: 50px;
+		border: 0px solid #bbb;
+	}
+	.goodorders_operation_nav p{
+		text-align: center;
+		line-height: 50px;
+	}
+
+	/* 商品详情 */
+	.show_goodorders{
+		margin: 0;
+		width: 100%;
+		height: 150px;
+		border: 1px solid #bbb;
+		border-top: 1px solid white;
+	}
+	.show_goodorders li{
+		list-style: none;
+		float: left;
+	}
+	.good_id{
+		margin: 0;
+		width: 80px;
+		height: 150px;
+		border-right: 1px solid #bbb;
+	}
+	.good_id p{
+		text-align: center;
+		line-height: 150px;
+	}
+	.good_price{
+		margin: 0;
+		width: 100px;
+		height: 150px;
+		border-right: 1px solid #bbb;
+	}
+	.good_price p{
+		text-align: center;
+		line-height: 150px;
+	}
+	.good_info{
+		margin: 0;
+		width: 250px;
+		height: 150px;
+		border-right: 1px solid #bbb;
+	}
+	p{
+		text-align: center;
+	}
+	/*.good_info p{*/
+	/*	text-align: center;*/
+	/*	line-height: 150px;*/
+	/*}*/
+	.user_info p{
+		text-align: center;
+		line-height: 150px;
+	}
+	.user_info{
+		margin: 0;
+		width: 250px;
+		height: 150px;
+		border-right: 1px solid #bbb;
+	}
+	.order_type p{
+	
+		text-align: center;
+		line-height: 150px;
+	}
+	.order_type{
+		margin: 0;
+		width: 110px;
+		height: 150px;
+		border-right: 1px solid #bbb;
+	}
+	.order_username p{
+		text-align: center;
+		line-height: 150px;
+	}
+	.order_username{
+		margin: 0;
+		width: 110px;
+		height: 150px;
+		border-right: 1px solid #bbb; 
+	}
+	.order_time p{
+		text-align: center;
+		line-height: 150px;
+	}
+	.order_time{
+		margin: 0;
+		width: 180px;
+		height: 150px;
+		border-right: 1px solid #bbb;
+	}
+	.good_operation{
+		margin: 0;
+		width: 110px;
+		height: 200px;
+		border: 0px solid #bbb;
+	}
+	.goodorders_operation button{
+		width: 47px;
+		height: 30px;
+		margin-top: 27px;
+		margin-left: 33px;
+		background-color: #FFBF6B;
+		border-color: #FFBF6B;
+		border-radius: 3px;
+	}
+	/* 页脚 */
+	.foot_font{
+		margin-top: 200px;
+		text-align: center;
+		color: #bbbbbb;
+	}

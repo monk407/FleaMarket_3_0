@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.endless.dao.OrderItemDao">
+
+    <delete id="AdminDeleteOrderItem">
+        delete from `orderitem` where order_id=#{id}
+    </delete>
+
+    <update id="Updategoodid">
+        UPDATE orderitem set goods_id=1 where id=#{orderitemid};
+    </update>
+    <delete id="deleteItem">
+            delete from orderitem where orderitem.order_id=#{orderid}
+    </delete>
+
+    <select id="SelectGoodidItem" resultMap="OrderItemResultMap">
+        select oi.id "oi_id",oi.price "oi_price",oi.amount "oi_amount",
+               g.id "g_id",
+               o.id "o_id", o.status "o_status"
+        from `orderitem` oi
+                 join `goods` g on oi.goods_id = g.id
+                 join `order` o on oi.order_id = o.id
+        where g.id = #{goodid}
+        order by oi.id
+    </select>
+
+    <resultMap id="OrderItemResultMap" type="com.endless.pojo.OrderItem">
+        <id column="oi_id" property="id"/>
+        <result column="oi_price" property="price"/>
+        <result column="oi_amount" property="amount"/>
+
+        <association property="goods" javaType="com.endless.pojo.Goods">
+            <id column="g_id" property="id"/>
+            <!--            <result column="g_name" property="username"/>-->
+        </association>
+
+        <association property="order" javaType="com.endless.pojo.Order">
+            <id column="o_id" property="id"/>
+            <result column="o_status" property="status"/>
+        </association>
+
+    </resultMap>
+
+
+
+    <insert id="addSubOrderOrderItem">
+        insert into `orderitem`(price,amount,goods_id,order_id) values(#{price},#{amount},#{goods_id},#{order_id})
+    </insert>
+
+
+    <resultMap id="OrderItemMap1" type="com.endless.pojo.OrderItem">
+        <id column="id" property="id"/>
+        <result column="price" property="price"/>
+        <result column="amount" property="amount"/>
+
+        <association property="goods" column="goods_id" javaType="com.endless.pojo.Goods">
+            <id column="goods_id" property="id"/>
+        </association>
+
+        <association property="order" column="order_id" javaType="com.endless.pojo.Order">
+            <id column="order_id" property="id"/>
+        </association>
+
+    </resultMap>
+
+    <select id="getMyBuyOrderItem" resultMap="OrderItemMap1">
+            select * from `orderitem` where order_id=#{orderId}
+    </select>
+
+    <delete id="delMyBuyOrderItem">
+        delete from `orderitem` where order_id=#{order_id}
+    </delete>
+
+
+
+
+    <resultMap id="OrderItemMap2" type="com.endless.pojo.OrderItem">
+        <id column="id" property="id"/>
+        <result column="price" property="price"/>
+        <result column="amount" property="amount"/>
+        <result column="goodsName" property="goodsName"/>
+
+        <association property="goods" column="goods_id" javaType="com.endless.pojo.Goods">
+            <id column="goods_id" property="id"/>
+        </association>
+
+        <association property="order" column="order_id" javaType="com.endless.pojo.Order">
+            <id column="order_id" property="id"/>
+            <result column="address" property="address"/>
+            <result column="status" property="status"/>
+            <result column="datetime" property="datetime"/>
+            <association property="buyUser" column="buy_id" javaType="com.endless.pojo.User">
+                <id column="buy_id" property="id"/>
+                <result column="username" property="username"/>
+            </association>
+        </association>
+
+    </resultMap>
+    <select id="getMySellOrder" resultMap="OrderItemMap2">
+        SELECT oi.id id,oi.price price,oi.amount amount,g.`name` goodsName,
+               oi.goods_id goods_id,oi.order_id order_id,
+               o.address address,o.`status` `status`,o.datetime datetime,o.buy_id buy_id
+                ,u.username username
+        FROM
+            `orderitem` oi
+                JOIN `order` o
+                     ON oi.order_id=o.id
+                JOIN `goods` g
+                     on oi.goods_id=g.id
+                JOIN `user` u
+                     ON o.buy_id=u.id
+        WHERE g.user_id=4
+        ORDER BY datetime ASC
+    </select>
+
+
+</mapper>
+

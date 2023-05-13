@@ -1,0 +1,110 @@
+/*左侧导航栏背景*/
+.left{
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #3f3f3f;
+}
+/*logo*/
+.left img{
+    width: 70%;
+    display: block;
+    margin: 50px auto;
+}
+/*导航栏字体*/
+.left li{
+    font-size: 16px;
+    color:#fff;
+    line-height: 60px;
+    padding-left: 15px;
+    border-bottom: 1px solid #2b2b2b;
+    cursor: pointer; /*鼠标箭头变小手*/
+}
+.left li.bot{
+    bottom: -180px;
+    position: relative;
+}
+
+.left li span{
+    margin-right: 20px;
+}
+.left li:active,.left li:hover{
+    background: #2b2b2b;
+}
+
+/*!*顶部导航条*!*/
+#navBar{
+    position: fixed;
+    padding: 20px 20px;
+    left: 200px;
+    right: 0;
+    border: 1px solid #3f3f3f;
+    background: #3f3f3f;
+
+    height: 70px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;/*    两端对齐*/
+    align-content: center;
+
+    color: #ffffff!important;
+
+    z-index: 99;
+}
+
+.navWrap{
+    display: flex;
+}
+.navWrap li{
+    font-size: 18px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.navWrap li:hover,.navWrap li.active{
+    color: #2aabd2;
+}
+
+.search{
+    width: 300px;
+    height: 25px;
+    box-sizing: border-box;
+    display: flex;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+}
+
+.search input{
+    background: none;
+    border: none;
+    width: 270px;
+    font-size: 16px;
+    color: #ffffff;
+    padding-left: 12px;
+}
+.search button{
+    width: 10px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;/* 居中*/
+    align-items: center;
+}
+
+/*.rightWarp{*/
+/*    padding: 80px 5px;*/
+/*    !*display: flex;*!*/
+/*    margin-left: 200px;*/
+/*    !*justify-content: space-between;!*    两端对齐*!*!*/
+/*    !*align-content: center;*!*/
+/*}*/
+
+/*左侧内容*/
+.right{
+    /*position: fixed;*/
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 80px 80px;
+    margin-left: 200px;
+}

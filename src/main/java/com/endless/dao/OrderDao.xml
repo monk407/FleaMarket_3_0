@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.endless.dao.OrderDao">
+
+    <!-- 读取表中有多少条数据 -->
+    <select id="selectOrderColumn" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM `order`
+    </select>
+
+    <select id="selectOrderById" resultMap="OrderResultMap">
+        SELECT o.id       "o_id",
+               o.total    "o_total",
+               o.amount   "o_amount",
+               o.name     "o_name",
+               o.phone    "o_phone",
+               o.address  "o_address",
+               o.status   "o_status",
+               o.datetime "o_datetime",
+               i.id       "i_id",
+               i.price    "i_price",
+               i.amount   "i_amount",
+               g.id       "g_id",
+               g.name     "g_name",
+               ub.id      "ub_id",
+               ub.username    "ub_name",
+               us.id      "us_id",
+               us.username    "us_name"
+        FROM `order` o
+                 JOIN `user` ub
+                      ON o.buy_id = ub.id
+                 JOIN `orderitem` i
+                      ON o.id = i.order_id
+                 JOIN `goods` g
+                      ON i.goods_id = g.id
+                 JOIN `user` us
+                      ON g.user_id = us.id
+        WHERE o.id = #{id}
+        ORDER BY o.id
+    </select>
+
+    <!-- 订单查询 -->
+    <select id="selectAllOrder" resultMap="OrderResultMap">
+        SELECT o.id       "o_id",
+               o.total    "o_total",
+               o.amount   "o_amount",
+               o.name     "o_name",
+               o.phone    "o_phone",
+               o.address  "o_address",
+               o.status   "o_status",
+               o.datetime "o_datetime",
+               i.id       "i_id",
+               i.price    "i_price",
+               i.amount   "i_amount",
+               g.id       "g_id",
+               g.name     "g_name",
+               ub.id      "ub_id",
+               ub.username    "ub_name",
+               us.id      "us_id",
+               us.username    "us_name"
+        FROM `order` o
+                 JOIN `user` ub
+                      ON o.buy_id = ub.id
+                 JOIN `orderitem` i
+                      ON o.id = i.order_id
+                 JOIN `goods` g
+                      ON i.goods_id = g.id
+                 JOIN `user` us
+                      ON g.user_id = us.id
+        ORDER BY o.id
+    </select>
+
+
+    <select id="selectUserOrder" resultMap="OrderResultMap">
+        SELECT o.id       "o_id",
+               o.total    "o_total",
+               o.amount   "o_amount",
+               o.name     "o_name",
+               o.phone    "o_phone",
+               o.address  "o_address",
+               o.status   "o_status",
+               o.datetime "o_datetime",
+               i.id       "i_id",
+               i.price    "i_price",
+               i.amount   "i_amount",
+               g.id       "g_id",
+               g.name     "g_name",
+               ub.id      "ub_id",
+               ub.username    "ub_name",
+               us.id      "us_id",
+               us.username    "us_name"
+        FROM `order` o
+                 JOIN `user` ub
+                      ON o.buy_id = ub.id
+                 JOIN `orderitem` i
+                      ON o.id = i.order_id
+                 JOIN `goods` g
+                      ON i.goods_id = g.id
+                 JOIN `user` us
+                      ON g.user_id = us.id
+        WHERE ub.id = #{userid}
+        ORDER BY o.id
+    </select>
+
+    <select id="selectOrderByStatus" resultMap="OrderResultMap">
+        SELECT
+            o.id "o_id",o.total "o_total",o.amount "o_amount",o.name "o_name",o.phone "o_phone",o.address "o_address",o.status "o_status",o.datetime "o_datetime",
+            i.id "i_id",i.price "i_price",i.amount "i_amount",
+            g.id "g_id",g.name "g_name",
+            ub.id "ub_id",ub.username "ub_name",
+            us.id "us_id",us.username "us_name"
+        FROM `order` o
+                 JOIN `user` ub
+                      ON o.buy_id = ub.id
+                 JOIN `orderitem` i
+                      ON o.id = i.order_id
+                 JOIN `goods` g
+                      ON i.goods_id = g.id
+                 JOIN `user` us
+                      ON g.user_id = us.id
+        WHERE o.status = #{status}
+        ORDER BY o.id
+    </select>
+
+    <resultMap id="OrderResultMap" type="com.endless.pojo.Order">
+        <id column="o_id" property="id"/>
+        <result column="o_total" property="total"/>
+        <result column="o_status" property="status"/>
+        <result column="o_amount" property="amount"/>
+        <result column="o_name" property="name"/>
+        <result column="o_phone" property="phone"/>
+        <result column="o_address" property="address"/>
+        <result column="o_datetime" property="datetime"/>
+
+        <association property="buyUser" javaType="com.endless.pojo.User">
+            <id column="ub_id" property="id"/>
+            <result column="ub_name" property="username"/>
+        </association>
+
+        <collection property="itemList" ofType="com.endless.pojo.OrderItem">
+            <id column="i_id" property="id"/>
+            <result column="i_price" property="price"/>
+            <result column="i_amount" property="amount"/>
+            <result column="g_name" property="goodsName"/>
+
+            <association property="goods" javaType="com.endless.pojo.Goods">
+                <id column="g_id" property="id"/>
+                <result column="g_name" property="name"/>
+
+                <association property="user" javaType="com.endless.pojo.User">
+                    <id column="us_id" property="id"/>
+                    <result column="us_name" property="username"/>
+                </association>
+
+            </association>
+
+        </collection>
+    </resultMap>
+
+    <delete id="deleteOrderByUserid">
+        delete from `order` where `order`.buy_id=#{userid}
+    </delete>
+
+    <delete id="AdminDeleteOrder">
+        delete from `order` where id=#{id}
+    </delete>
+
+    <select id="AdminSearchOrder" resultMap="OrderResultMap">
+        SELECT
+            o.id "o_id",o.total "o_total",o.amount "o_amount",o.name "o_name",o.phone "o_phone",o.address "o_address",o.status "o_status",o.datetime "o_datetime",
+            i.id "i_id",i.price "i_price",i.amount "i_amount",
+            g.id "g_id",g.name "g_name",
+            ub.id "ub_id",ub.username "ub_name",
+            us.id "us_id",us.username "us_name"
+        FROM `order` o
+                 JOIN `user` ub
+                      ON o.buy_id = ub.id
+                 JOIN `orderitem` i
+                      ON o.id = i.order_id
+                 JOIN `goods` g
+                      ON i.goods_id = g.id
+                 JOIN `user` us
+                      ON g.user_id = us.id
+        WHERE o.id LIKE CONCAT('%', #{searchValue}, '%')
+           OR o.phone LIKE CONCAT('%', #{searchValue}, '%')
+           OR o.address LIKE CONCAT('%', #{searchValue}, '%')
+           OR o.datetime LIKE CONCAT('%', #{searchValue}, '%')
+           OR g.name LIKE CONCAT('%', #{searchValue}, '%')
+           OR ub.username LIKE CONCAT('%', #{searchValue}, '%')
+           OR us.username LIKE CONCAT('%', #{searchValue}, '%')
+        ORDER BY o.id
+    </select>
+
+
+    <insert id="addOrderByCart">
+        insert into `order`(total,amount,status,name,phone,address,datetime,buy_id) values(#{orderTotal},#{orderAmount},#{status},#{oname},#{phone},#{address},#{datetime},#{orderUserId})
+    </insert>
+
+    <select id="findNewOrderIdByBuyIdInCart" resultType="int">
+        select * from `order` where buy_id=#{buyId} order by id DESC LIMIT 1
+    </select>
+
+
+    <resultMap id="OrderResultMap2" type="com.endless.pojo.Order">
+        <id column="id" property="id"/>
+        <result column="total" property="total"/>
+        <result column="status" property="status"/>
+        <result column="amount" property="amount"/>
+        <result column="name" property="name"/>
+        <result column="phone" property="phone"/>
+        <result column="address" property="address"/>
+        <result column="datetime" property="datetime"/>
+
+        <association property="buyUser" column="buy_id" javaType="com.endless.pojo.User">
+            <id column="buy_id" property="id"/>
+        </association>
+
+    </resultMap>
+
+    <select id="getOrderByUser" resultMap="OrderResultMap2">
+        select * from `order` where buy_id=#{userid}
+    </select>
+
+    <delete id="delMyBuyOrder">
+        delete from `order` where id=#{id}
+    </delete>
+
+</mapper>

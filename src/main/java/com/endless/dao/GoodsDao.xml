@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.endless.dao.GoodsDao">
+
+    <resultMap id="resultGoodsMap" type="com.endless.pojo.Goods">
+
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="image" property="image"></result>
+        <result column="price" property="price"></result>
+        <result column="intro" property="intro"></result>
+        <result column="stock" property="stock"></result>
+        <association property="type" column="type_id" javaType="com.endless.pojo.Type">
+            <id column="type_id" property="id"></id>
+        </association>
+        <association property="user" column="user_id" javaType="com.endless.pojo.User">
+            <id column="user_id" property="id"></id>
+        </association>
+
+    </resultMap>
+
+    <select id="recommendGoodsList" resultMap="resultGoodsMap">
+
+        select *
+        from goods limit #{count},6
+
+    </select>
+
+    <select id="totalGoodsCount" resultType="int">
+
+        select count(*)
+        from goods
+
+    </select>
+
+    <select id="findGood" resultMap="resultGoodsMap">
+
+        select * from goods where id=#{id}
+
+    </select>
+
+    <select id="findGoodStock" resultType="int">
+        select stock from goods where id=#{id}
+    </select>
+
+    <select id="findAllGoods" resultMap="resultGoodsMap">
+        select * from goods
+    </select>
+
+    <select id="findGoodsByType" resultMap="resultGoodsMap">
+        select * from goods where type_id=#{type_id}
+    </select>
+
+    <select id="searchGoods" resultMap="resultGoodsMap">
+        select * from goods where name like #{searchGoodsName}
+    </select>
+
+
+
+    <!-- 读取表中有多少条数据 -->
+    <select id="selectGoodsColumn" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM `goods`
+    </select>
+
+    <resultMap type="com.endless.pojo.Goods" id="GoodsResultMap">
+        <id column="g_id" property="id" />
+        <result column="g_id" property="id"/>
+        <result column="g_name" property="name"/>
+        <result column="g_image" property="image"/>
+        <result column="g_price" property="price"/>
+        <result column="g_intro" property="intro"/>
+        <result column="g_stock" property="stock"/>
+
+        <association property="type" javaType="com.endless.pojo.Type">
+            <result column="t_id" property="id"/>
+            <result column="t_name" property="name"/>
+        </association>
+
+        <association property="user" javaType="com.endless.pojo.User">
+            <result column="u_id" property="id"/>
+            <result column="u_username" property="username"/>
+            <result column="u_email" property="email"/>
+            <result column="u_password" property="password"/>
+            <result column="u_name" property="name"/>
+            <result column="u_phone" property="phone"/>
+            <result column="u_address" property="address"/>
+            <result column="u_idadmin" property="isadmin"/>
+        </association>
+    </resultMap>
+
+    <select id="SelectAllGoods" resultMap="GoodsResultMap">
+        SELECT
+            g.id "g_id",g.name "g_name",g.image "g_image",g.price "g_price",g.intro "g_intro",g.stock "g_stock",
+            t.id "t_id",t.name "t_name",
+            u.id "u_id",u.username "u_username",u.email "u_email",u.password "u_password",u.name "u_name",u.phone "u_phone",u.address "u_address",u.isadmin "u_idadmin"
+        FROM goods g
+                 JOIN TYPE t ON g.type_id = t.id
+                 JOIN USER u ON g.user_id = u.id
+        order by g.id
+    </select>
+
+
+    <select id="SelectAllTypeGoods" resultMap="GoodsResultMap">
+        SELECT
+            g.id "g_id",g.name "g_name",g.image "g_image",g.price "g_price",g.intro "g_intro",g.stock "g_stock",
+            t.id "t_id",t.name "t_name",
+            u.id "u_id",u.username "u_username",u.email "u_email",u.password "u_password",u.name "u_name",u.phone "u_phone",u.address "u_address",u.isadmin "u_idadmin"
+        FROM goods g
+                 JOIN TYPE t ON g.type_id = t.id
+                 JOIN USER u ON g.user_id = u.id
+        where t.id = #{typeID}
+        order by g.id
+    </select>
+
+    <delete id="AdminDeleteGood">
+        delete from goods where id=#{id}
+    </delete>
+
+    <select id="SelectUseridGoods" resultMap="GoodsResultMap">
+        SELECT
+            g.id "g_id",g.name "g_name",g.image "g_image",g.price "g_price",g.intro "g_intro",g.stock "g_stock",
+            t.id "t_id",t.name "t_name",
+            u.id "u_id",u.username "u_username",u.email "u_email",u.password "u_password",u.name "u_name",u.phone "u_phone",u.address "u_address",u.isadmin "u_idadmin"
+        FROM goods g
+                 JOIN TYPE t ON g.type_id = t.id
+                 JOIN USER u ON g.user_id = u.id
+        where u.id = #{userid}
+        order by g.id
+    </select>
+
+    <delete id="deletegoods">
+        delete from goods where id=#{goodid}
+    </delete>
+    <update id="UpdateTypeid">
+        update goods set goods.type_id=1 where goods.type_id=#{typeid};
+    </update>
+
+    <select id="AdminSearchGood" resultMap="GoodsResultMap">
+        SELECT
+            g.id "g_id",g.name "g_name",g.image "g_image",g.price "g_price",g.intro "g_intro",g.stock "g_stock",
+            t.id "t_id",t.name "t_name",
+            u.id "u_id",u.username "u_username",u.email "u_email",u.password "u_password",u.name "u_name",u.phone "u_phone",u.address "u_address",u.isadmin "u_idadmin"
+        FROM goods g
+                 JOIN TYPE t ON g.type_id = t.id
+                 JOIN USER u ON g.user_id = u.id
+        where g.name LIKE CONCAT('%', #{searchValue}, '%')
+        order by g.id
+    </select>
+
+
+    <update id="subStockInCart">
+        update goods set stock=#{stock} where id=#{id}
+    </update>
+
+
+    <select id="gethotGoodsList" resultMap="resultGoodsMap">
+
+        SELECT goods_id id,
+               g.`name`,g.image,g.price,g.intro,g.stock,g.type_id,g.user_id
+        from orderitem o
+                 JOIN goods g
+                      on o.goods_id=g.id
+        GROUP BY o.goods_id,g.`name`,g.image,g.price,g.intro,g.stock,g.type_id,g.user_id
+        ORDER BY SUM(o.amount) DESC
+            LIMIT 6
+
+    </select>
+
+    <update id="modifyMyOrderGoodsStatus">
+        update `order` set status=3 where id=#{id}
+    </update>
+
+    <update id="modifyMySellGoodsStatus">
+        update `order` set status=2 where id=#{id}
+    </update>
+
+    <select id="findGoodStockByOrderId" resultMap="resultGoodsMap">
+        SELECT g.id id,g.name name,g.image image,g.price price,g.intro intro,g.stock stock,
+               g.type_id type_id,g.user_id user_id
+        from `orderitem` oi
+                 JOIN goods g
+                      ON oi.goods_id=g.id
+        WHERE oi.order_id=#{orderId}
+    </select>
+
+    <update id="modifyMyOrderGoodsStock">
+        update `goods` set stock=#{stock} where id=#{id}
+    </update>
+
+    <select id="findLateGoodId" resultType="int">
+        SELECT id from goods ORDER BY id DESC limit 1
+    </select>
+
+    <insert id="insertNewGoods">
+        insert into goods(name,image,price,intro,stock,type_id,user_id) values(#{goodsName},#{image},#{price},#{intro},#{stock},#{type_id},#{user_id})
+    </insert>
+
+    <update id="editGoods">
+        update `goods` set `name`=#{name},image=#{image},price=#{price},intro=#{intro},stock=#{stock},type_id=#{type_id},user_id=#{user_id} where id=#{id}
+    </update>
+
+</mapper>

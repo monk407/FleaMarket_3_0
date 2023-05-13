@@ -1,0 +1,170 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* 商品轮播 */
+.picture{
+	margin: 0;
+	width: 100%;
+	height: 120px;
+	border: 0px solid red;
+	margin-left: 64px;
+	/* margin-top: 40px; */
+	/* background-image: url("../img/6-3.jpg");
+	background-size: 1125px 400px;
+	animation: 35s lbt infinite; */
+}
+.box {
+	width: 1125px;
+	height: 400px;
+	background-color: palevioletred;
+	margin: 100px auto;
+	transform:translateY(-30%);
+}
+.divSize{
+	width: 1125px;
+	height: 400px;
+}
+.carousel,
+.carousel img {
+	width: 100%;
+	height: 650px !important;
+}
+.indexCakeWordDiv{
+
+	/*width: 770px;*/
+	transform:translateY(-400%);
+	font-size: 50px;
+	font-family: "仿宋";
+	font-weight: bolder;
+	color: paleturquoise;
+	/*left: 35%;*/
+	/*top: 17%;*/
+
+}
+/* @keyframes lbt {
+    0%{background-image: url("/img/6-3.jpg.jpg");}
+    15%{background-image: url("/img/6-3.jpg.jpg");}
+    30%{background-image: url("/img/6-3.jpg.jpg");}
+    45%{background-image: url("/img/6-3.jpg.jpg");}
+    60%{background-image: url("/img/6-3.jpg.jpg");}
+    75%{background-image: url("/img/6-3.jpg.jpg");}
+    100%{background-image: url("/img/6-3.jpg.jpg");}
+} */
+/* 商品展示 */
+.show_commodity{
+	margin: 0;
+	/* width: 1079px; */
+	width: 1000px;
+	height: 1700px;
+	border: 1px solid #bbbbbb;
+	margin-left: 64px;
+	background-color: #fff;
+}
+.show_commodity li{
+	list-style: none;	
+	float: left;
+	margin-top: 25px;
+	background-color: #fff;
+}
+.commodity1{
+	margin: 0;
+	width: 268px;
+	height: 340px;
+	border: 1px solid #bbbbbb;
+	margin-left: 43px;
+	background-color: #fff;
+}
+.commodity2{
+	margin: 0;
+	width: 268px;
+	height: 340px;
+	border: 1px solid #bbbbbb;
+	margin-left: 53px;
+	background-color: #fff;
+}
+.commodity3 {
+	margin: 0;
+	width: 268px;
+	height: 340px;
+	border: 1px solid #bbbbbb;
+	margin-left: 54px;
+	background-color: #bbbbbb;
+}
+.commodity_pic{
+	margin: 0;
+	width: 240px;
+	height: 211px;
+	/* border: 1px solid #bbbbbb; */
+	margin-left: 13px;
+	margin-top: 9px;
+	background-color: #fff;
+}
+.commodity_text{
+	margin: 0;
+	width: 240px;
+	height: 100px;
+	/* border: 1px solid #bbbbbb; */
+	margin-left: 13px;
+	margin-top: 9px;
+	background-color: #fff;
+}
+.word_size{
+	font-size: 18px;
+	color: #6c6c6c;
+}
+
+/* 页尾 */
+.foot{
+	margin: 0;
+	width: 100%;
+	height: 200px;
+	border: 1px solid #bbbbbb;
+	background-color: #fff;
+}
+.foot li{
+	list-style: none;
+	float: left;
+}
+.foot_info1{
+	margin: 0;
+	width: 200px;
+	height: 150px;
+	border-right: 1px solid #bbbbbb;
+	margin-left: 426px;
+	margin-top: 10px;
+}
+.foot_info1 p{
+	margin-top: 20px;
+}
+
+.foot_info2{
+	margin: 0;
+	width: 200px;
+	height: 150px;
+	border-right: 1px solid #bbbbbb;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+.foot_info2 p{
+	margin-top: 20px;
+}
+.foot_info3{
+	margin: 0;
+	width: 200px;
+	height: 150px;
+	border: 1px solid red;
+	margin-left: 100px;
+	margin-top: 10px;
+}
+.foot_font p{	
+	/* position:absolute; 
+	bottom:0; */
+	/* height:100px;
+	width:100%;
+	overflow:hidden; */
+	margin-top: 160px;
+	margin-left: 425px;
+	color: #bbbbbb;
+}

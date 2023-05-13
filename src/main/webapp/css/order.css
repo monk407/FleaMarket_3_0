@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    outline: none;
+}
+.main {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80vw;
+    height: 80vh;
+}
+
+.cart-filter-bart {
+    font-size: 40px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 3px solid black;
+}
+
+.cart-table {
+    margin-top: 10px;
+    height: 20px;
+    font-weight: bold;
+}
+
+.cart-table-tr {
+    height: 120px;
+}
+a {
+    color: #1ea9ea;
+    text-decoration: none;
+}
+
+body {
+    /*padding: 20px;*/
+    color: #7b694d;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    text-align: center;
+    width: 937px;
+}
+
+th,
+td {
+    border: 1px solid #ffe5ca;
+}
+
+th {
+    background: #fff5e2;
+    border-top: 3px solid #827752;
+    height: 30px;
+}
+
+td {
+    padding: 10px;
+    color: #444;
+}
+
+tbody tr:hover {
+    background: RGB(238, 246, 255);
+}
+
+.checkbox {
+    width: 60px;
+}
+
+.id {
+    width: 100px;
+    font-weight: bold;
+}
+
+.goods {
+    width: 300px;
+    font-weight: bold;
+}
+
+.goods span {
+    width: 180px;
+    margin-top: 20px;
+    text-align: left;
+    float: left;
+}
+
+.price {
+    width: 130px;
+    font-weight: bold;
+}
+
+.get {
+    width: 150px;
+    font-weight: bold;
+}
+
+.subtotal {
+    width: 150px;
+    font-weight: bold;
+    color: #3e342b;
+}
+
+.operation {
+    width: 80px;
+    font-weight: bold;
+}
+
+.operation span:hover,
+a:hover {
+    cursor: pointer;
+    color: #dedada;
+    text-decoration: underline;
+}
+
+
+.line{
+    width: 100%;
+    height: 5px;
+    border-top:2px solid #bbb ;
+}
+
+

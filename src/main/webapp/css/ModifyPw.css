@@ -1,0 +1,127 @@
+.form_body {
+    /*overflow: hidden;*/
+    width: 660px;
+    height: 340px;
+    margin: 100px auto 100px;
+    border: 1px solid #e1e2e5;
+    box-shadow: 0 2px 4px rgba(0,0,0,.14);
+    background: #fafafa;
+    border-radius: 4px;
+}
+
+.form_header{
+    margin-top: 30px;
+    margin-bottom: 6px;
+}
+
+.form_header span {
+    width: 50px;
+    font-size: 24px;
+    font-weight: normal;
+    font-style: oblique;
+    color: #00a1d6;
+    margin-left: 36px;
+}
+
+.line{
+    width: 94%;
+    height: 1px;
+    border-top:2px solid #bbb ;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.mpw_from{
+    margin:0 auto;
+    margin-top: 20px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mpw_from p{
+    width: 580px;
+    display: flex;
+    margin-left: 20px;
+    /*background: 1px #2aabd2;*/
+    font-size: 20px;
+    font-weight: normal;
+    border-radius: 30px;
+    line-height: 45px;
+    position: relative;
+}
+
+.mpw_from label{
+    width: 160px;
+    height: 100%;
+    /*background: #9d9d9d;*/
+    color: #606266;
+    text-align: right;
+    font-weight: normal;
+    padding-right: 25px;
+    /*border-radius: 30px 0 0 30px;*/
+    /*display: inline-block;*/
+}
+
+.mpw_from input.text{
+    width: 100%;
+    /*border: none;*/
+    border: 1px solid #9d9d9d;
+    font-size: 18px;
+    color: #0f0f0f;
+    padding-left: 10px;
+    border-radius: 15px;
+
+}
+
+.mpw_from input.right{
+    width: 10%;
+}
+
+.mpw_from .tips{
+    position: absolute;
+    top: 0;
+    right: 20px;
+
+    font-size: 16px;
+    color: red;
+
+}
+
+.mpw_from label.control-label{
+    width: 100px;
+    height: 100%;
+    /*background: #9d9d9d;*/
+    color: #9d9d9d;
+    text-align: center;
+    /*border-radius: 30px 0 0 30px;*/
+}
+
+.button_position{
+    margin:0 auto;
+}
+
+.mpw_from button{
+    /*margin:0 auto;*/
+    width: 90px;
+    height: 40px;
+    /*margin: 0 10px;*/
+    background: #00a1d6;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    border: 0px;
+    margin-top: 20px;
+}
+
+.mpw_from button:hover,.mpw_from button.active{
+    background: #28b8e3;
+}
+
+/* 页脚 */
+.form_body .form_font{
+    margin-top: 100px!important;
+    /* margin-left: 425px; */
+    text-align: center!important;
+    color: #bbbbbb!important;
+}
